@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "yakh"
+version = "0.1.0"
+description = "Yet Another Keypress Handler"
+authors = ["petereon <pvyboch1@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7.8"
+
+
+[tool.poetry.group.dev.dependencies]
+ward = "^0.67.0b0"
+ward-coverage = "^0.3.0"
+black = "^22.10.0"
+flake8 = "^5.0.4"
+pylint = "^2.15.6"
+woflo = "^0.8.2"
+pynput = "^1.7.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+lint = { shell = "black ./yakh/ && pylint ./yakh/"}
