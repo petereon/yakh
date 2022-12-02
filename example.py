@@ -5,4 +5,5 @@ while True:
     if key.key_codes == (3,):
         exit()
     else:
-        print(key.key)
+        if key.is_printable:
+            print(key)
