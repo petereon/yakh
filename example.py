@@ -1,9 +1,9 @@
-import yakh
+from yakh import get_key
+from yakh.key import Keys
 
 while True:
-    key = yakh.get_key()
-    if key.key_codes == (3,):
-        exit()
-    else:
-        if key.is_printable:
-            print(key)
+    key = get_key()
+    if key in ['q', Keys.ENTER]:
+        break
+    if key.is_printable:
+        print(key)

@@ -1,5 +1,5 @@
 import sys
-from yakh.key import Key
+from yakh.key._key import Key
 
 try:
 
@@ -10,7 +10,7 @@ try:
 
     def __get_key() -> bytes:
         tty.setraw(fdInput)
-        ch = sys.stdin.buffer.raw.read(4).decode(sys.stdin.encoding)
+        ch = sys.stdin.read(1)
         termios.tcsetattr(fdInput, termios.TCSADRAIN, termAttr)
         return ch
 
