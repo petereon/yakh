@@ -17,7 +17,7 @@ while key not in ['q', Keys.ENTER]:
 
 yakh is dead-simple, there is only one function `get_key()` which takes no arguments and blocks until a key is pressed.
 
-For each keypress it creates an instance of [`Key`](./yakh/key.py#L6) which holds:
+For each keypress it creates an instance of [`Key`](./yakh/key/_key.py#L7) which holds:
 
 - `.key`: characters representing the keypress
 - `.key_codes`: collection of Unicode code point encodings for all the characters (given by `ord` function)
@@ -31,4 +31,4 @@ Additionally `Key` instances
 ## `yakh.key` submodule
 `yakh.key` sub-module contains platform dependent representations of certain keys under `Keys` class. These are available namely for `CTRL` key combinations and some other common keys. 
 
-Full list of keys can be seen [here](./yakh/key.py#L44).
+Full list of keys can be seen [here](./yakh/key/_key.py#L42) and [here](./yakh/key/_key.py#L81).
