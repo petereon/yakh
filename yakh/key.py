@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Tuple
+from typing import Tuple, Union
 from sys import platform
 
 
@@ -14,14 +14,12 @@ class Key:
         self.is_printable = is_printable
 
     def __str__(self):
-        if self.is_printable:
-            return self.key
-        return ""
+        return self.key
 
     def __repr__(self):
-        return self.__str__()
+        return self.__str__(self)
 
-    def __eq__(self, other):
+    def __eq__(self, other: Union[Tuple[int, ...], str]):
         if isinstance(other, str):
             return self.key == other
 
@@ -29,6 +27,9 @@ class Key:
             return self.key_codes == other
 
         raise ValueError(f"Cannot compare with {other}. Expected `List[int]` or `str`.")
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
 
 CTRL_A = (1,)
