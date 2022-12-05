@@ -24,3 +24,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
 lint = { shell = "black ./yakh/ && pylint ./yakh/"}
+test = { shell = "ward -p ./tests"}

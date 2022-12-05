@@ -1,2 +1,3 @@
 .vscode/
 *cache*
+.DS_Store
