@@ -5,6 +5,10 @@ description = "Yet Another Keypress Handler"
 authors = ["petereon <pvyboch1@gmail.com>"]
 readme = "README.md"
 
+packages = [
+    { include = "yakh" },
+]
+
 [tool.poetry.dependencies]
 python = "^3.7.8"
 
