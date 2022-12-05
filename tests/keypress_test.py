@@ -59,6 +59,15 @@ if platform.startswith(("linux", "darwin", "freebsd")):
             with mock.patch(
                 "yakh._yakh.sys.stdin.read",
                 lambda *_, **__: stdin_repr,
+            ), mock.patch(
+                "yakh._yakh.termios.tcgetattr",
+                lambda *_, **__: 1
+            ), mock.patch(
+                "yakh._yakh.tty.setraw",
+                lambda *_, **__: None
+            ), mock.patch(
+                "yakh._yakh.termios.tcsetattr",
+                lambda *_, **__: None
             ):
                 assert get_key() == key_repr
 

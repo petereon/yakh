@@ -5,10 +5,10 @@ try:
 
     import termios, tty
 
-    fdInput = sys.stdin.fileno()
-    termAttr = termios.tcgetattr(fdInput)
 
     def __get_key() -> bytes:
+        fdInput = sys.stdin.fileno()
+        termAttr = termios.tcgetattr(fdInput)
         tty.setraw(fdInput)
         ch = sys.stdin.read(1)
         termios.tcsetattr(fdInput, termios.TCSADRAIN, termAttr)
@@ -22,6 +22,7 @@ try:
 except ImportError:
 
     import msvcrt
+
 
     def get_key() -> Key:
         ch = msvcrt.getwch()
