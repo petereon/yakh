@@ -25,7 +25,7 @@ except ImportError:
 
     def get_key() -> Key:
         ch = msvcrt.getwch()
-        if ch in ['à', '\x00']:
+        if ch in ["à", "\x00"]:
             ch += msvcrt.getwch()
         ch_ord = tuple(map(ord, ch))
         return Key(ch, ch_ord, ch.isprintable())

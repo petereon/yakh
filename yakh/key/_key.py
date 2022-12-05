@@ -28,16 +28,19 @@ class Key:
             return self.key_codes == other
 
         if isinstance(other, Key):
-            return all([
-                self.key == other.key,
-                self.key_codes == other.key_codes,
-                self.is_printable == other.is_printable
-            ])
+            return all(
+                [
+                    self.key == other.key,
+                    self.key_codes == other.key_codes,
+                    self.is_printable == other.is_printable,
+                ]
+            )
 
         raise ValueError(f"Cannot compare with {other}. Expected `List[int]` or `str`.")
 
     def __ne__(self, other):
         return not self.__eq__(other)
+
 
 class _PlatformIndependentKeys:
     CTRL_A = (1,)
@@ -73,12 +76,12 @@ class _PlatformIndependentKeys:
     TAB = (9,)
 
     def __init__(self):
-        raise RuntimeError('`Keys` class cannot be instatiated')
+        raise RuntimeError("`Keys` class cannot be instatiated")
 
 
 if platform.startswith(("linux", "darwin", "freebsd")):
 
-    class Keys(_PlatformIndependentKeys):        
+    class Keys(_PlatformIndependentKeys):
         UP_ARROW = (27, 91, 65)
         DOWN_ARROW = (27, 91, 66)
         RIGHT_ARROW = (27, 91, 67)
@@ -97,7 +100,6 @@ if platform.startswith(("linux", "darwin", "freebsd")):
 
         OPTION_ENTER = (27, 13)
         CTRL_ENTER = OPTION_ENTER
-
 
 elif platform in ("win32", "cygwin"):
 
@@ -120,6 +122,6 @@ elif platform in ("win32", "cygwin"):
 
         CTRL_ENTER = (10,)
         OPTION_ENTER = CTRL_ENTER
-    
+
 else:
     raise NotImplementedError(f"Platform `{platform}` is not supported")
