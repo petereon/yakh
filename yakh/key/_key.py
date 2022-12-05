@@ -1,10 +1,17 @@
-from dataclasses import dataclass
-from enum import Enum
 from typing import Tuple, Union
 from sys import platform
 
+"""yakh.key` sub-module contains `Key` class which is used to represent keypresses and platform dependent representations of certain keys under `Keys` class. These are available namely for `CTRL` key combinations and some other common keys. 
+"""
+
 
 class Key:
+    """`Key` class is used to represent keypresses
+
+    Raises:
+        ValueError: Raised when comparison is not possible
+    """
+
     key: str
     key_codes: Tuple[int, ...]
     is_printable: bool
