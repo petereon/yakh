@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "yakh"
+name = "python-yakh"
 version = "0.1.0"
 description = "Yet Another Keypress Handler"
 authors = ["petereon <pvyboch1@gmail.com>"]
