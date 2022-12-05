@@ -10,7 +10,7 @@ try:
         fd_input = sys.stdin.fileno()
         term_attr = termios.tcgetattr(fd_input)
         tty.setraw(fd_input)
-        ch_str = sys.stdin.read(1)
+        ch_str = sys.stdin.buffer.raw.read(4).decode(sys.stdin.encoding)
         termios.tcsetattr(fd_input, termios.TCSADRAIN, term_attr)
         return ch_str
 
