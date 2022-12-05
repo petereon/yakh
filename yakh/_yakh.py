@@ -6,7 +6,7 @@ try:
     import termios, tty
 
     fdInput = sys.stdin.fileno()
-    termAttr = termios.tcgetattr(0)
+    termAttr = termios.tcgetattr(fdInput)
 
     def __get_key() -> bytes:
         tty.setraw(fdInput)
