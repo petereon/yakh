@@ -25,7 +25,7 @@ class Key:
         return self.key
 
     def __repr__(self):
-        return self.__str__(self)
+        return self.__str__()
 
     def __eq__(self, other: Union[Tuple[int, ...], str]):
         if isinstance(other, str):

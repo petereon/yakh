@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-yakh"
-version = "0.1.1"
+version = "0.2.0"
 description = "Yet Another Keypress Handler"
 authors = ["petereon <pvyboch1@gmail.com>"]
 readme = "README.md"
