@@ -30,9 +30,9 @@ try:
 
     def __get_key() -> str:
         fd_input = sys.stdin.fileno()
+        term_attr = termios.tcgetattr(fd_input)
         fl = fcntl.fcntl(fd_input, fcntl.F_GETFL)
         fcntl.fcntl(fd_input, fcntl.F_SETFL, fl | os.O_NONBLOCK)
-        term_attr = termios.tcgetattr(fd_input)
         tty.setraw(fd_input)
         ch_str = ""
         try:
@@ -48,6 +48,7 @@ try:
             pass
         finally:
             termios.tcsetattr(fd_input, termios.TCSADRAIN, term_attr)
+            fcntl.fcntl(fd_input, fcntl.F_SETFL, fl)
         first, *rest = __break_on_char(ch_str)
         __unconsumed_chars.extend(rest)
         return first
