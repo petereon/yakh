@@ -1,7 +1,5 @@
 # yakh
 
-> :warning: yakh is largely broken at the moment and it's not recommended for any use outside of testing
-
 yakh (Yet Another Keypress Handler) tries to handle keypresses from the stdin in the terminal in high-level platform indepdendent manner.
 
 ## Usage
