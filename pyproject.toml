@@ -17,10 +17,7 @@ python = "^3.7.8"
 ward = "^0.67.0b0"
 ward-coverage = "^0.3.0"
 black = "^22.10.0"
-flake8 = "^5.0.4"
 pylint = "^2.15.6"
-woflo = "^0.8.2"
-pynput = "^1.7.6"
 
 [build-system]
 requires = ["poetry-core"]
