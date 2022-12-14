@@ -1,9 +1,16 @@
 [tool.poetry]
 name = "python-yakh"
-version = "0.2.1"
+version = "0.3.1"
 description = "Yet Another Keypress Handler"
 authors = ["petereon <pvyboch1@gmail.com>"]
+license = 'MIT'
+repository = 'https://github.com/petereon/yakh'
 readme = "README.md"
+keywords = ["python", "keypress", "key", "keyboard"]
+classifiers = [
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3',
+]
 
 packages = [
     { include = "yakh" },
