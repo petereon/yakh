@@ -2,6 +2,18 @@
 
 yakh (Yet Another Keypress Handler) tries to handle keypresses from the stdin in the terminal in high-level platform indepdendent manner.
 
+## Installation
+
+Yakh can be installed from [PyPI](https://pypi.org/project/python-yakh/) using,
+```sh
+pip install python-yakh
+```
+
+or GitHub itself using poetry,
+```sh
+poetry add git+https://github.com/petereon/yakh.git
+```
+
 ## Usage
 
 ```python
