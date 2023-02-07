@@ -15,16 +15,16 @@ try:
     __unconsumed_chars: List[str] = []
 
     # Adapted from: https://stackoverflow.com/a/59159112/9019559
-    def __break_on_char(imput_str: str) -> List[str]:
+    def __break_on_char(input_str: str) -> List[str]:
         pos = 0
         result = []
-        for m in __ANSICODE.finditer(imput_str):
-            text = imput_str[pos : m.start()]
+        for m in __ANSICODE.finditer(input_str):
+            text = input_str[pos : m.start()]
             result.extend(list(text))
             result.append(m.group())
             pos = m.end()
 
-        text = imput_str[pos:]
+        text = input_str[pos:]
         result.extend(list(text))
         return result
 
