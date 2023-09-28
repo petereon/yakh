@@ -37,8 +37,8 @@ try:
         tty.setraw(fd_input)
         ch_str = ""
         try:
-            rlist, _, _ = select.select([sys.stdin], [], [], None)  # Set a timeout
-            while rlist:
+            select.select([sys.stdin], [], [], None)
+            while True:
                 ch_stri = sys.stdin.read(1)
                 if ch_stri == "":
                     break
