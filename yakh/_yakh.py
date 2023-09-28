@@ -1,3 +1,4 @@
+import select
 import sys
 from typing import List
 from yakh.key._key import Key
@@ -36,14 +37,12 @@ try:
         tty.setraw(fd_input)
         ch_str = ""
         try:
-            while True:
-                if ch_str != "":
+            rlist, _, _ = select.select([sys.stdin], [], [], None)  # Set a timeout
+            while rlist:
+                ch_stri = sys.stdin.read(1)
+                if ch_stri == "":
                     break
-                while True:
-                    ch_stri = sys.stdin.read(1)
-                    if ch_stri == "":
-                        break
-                    ch_str += ch_stri
+                ch_str += ch_stri
         except Exception:
             pass
         finally:
