@@ -21,10 +21,10 @@ python = "^3.7.8"
 
 
 [tool.poetry.group.dev.dependencies]
-ward = "^0.67.0b0"
-ward-coverage = "^0.3.0"
-black = "^22.10.0"
-pylint = "^2.15.6"
+ward = "*"
+ward-coverage = "*"
+black = "*"
+pylint = "*"
 
 [build-system]
 requires = ["poetry-core"]

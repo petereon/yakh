@@ -5,7 +5,8 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
+env:
+  POETRY_VERSION: "<1.4.0"
 jobs:
   build:
     if: |
@@ -27,7 +28,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        python -m pip install poetry poethepoet
+        python -m pip install "poetry${{ env.POETRY_VERSION }}" poethepoet
         poetry install
     - name: Test with ward
       run: |
