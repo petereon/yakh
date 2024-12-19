@@ -1,0 +1,4 @@
+ward==0.68.0b0
+ward-coverage==0.3.0
+black==24.10.0
+pylint==3.3.2

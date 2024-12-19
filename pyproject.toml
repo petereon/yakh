@@ -19,13 +19,6 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.7.8"
 
-
-[tool.poetry.group.dev.dependencies]
-ward = "*"
-ward-coverage = "*"
-black = "*"
-pylint = "*"
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
