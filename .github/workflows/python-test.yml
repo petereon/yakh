@@ -31,6 +31,6 @@ jobs:
         python -m pip install "poetry${{ env.POETRY_VERSION }}" poethepoet
         poetry install
         poetry run pip install -r requirements-dev.txt
-    - name: Test with ward
+    - name: Test with pytest
       run: |
         poe test
