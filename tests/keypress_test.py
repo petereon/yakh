@@ -1,5 +1,5 @@
 from unittest import mock
-from ward import test
+import pytest
 from yakh import get_key
 from sys import platform
 
@@ -52,15 +52,13 @@ if platform.startswith(("linux", "darwin", "freebsd")):
         "\x1b\r": Keys.OPTION_ENTER,
     }
 
-    for stdin_repr, key_repr in keys_mapping.items():
-
-        @test(f"Should capture `{stdin_repr}`")
-        def _(stdin_repr=stdin_repr, key_repr=key_repr):
-            with mock.patch(
-                "yakh._yakh.__get_key",
-                lambda *_, **__: stdin_repr,
-            ):
-                assert get_key() == key_repr
+    @pytest.mark.parametrize("stdin_repr, key_repr", keys_mapping.items())
+    def test_key_capture(stdin_repr, key_repr):
+        with mock.patch(
+            "yakh._yakh.__get_key",
+            lambda *_, **__: stdin_repr,
+        ):
+            assert get_key() == key_repr
 
 elif platform in ("win32", "cygwin"):
     keys_mapping = [
@@ -109,13 +107,12 @@ elif platform in ("win32", "cygwin"):
         (("\x00", "K"), Keys.NUMPAD_LEFT_ARROW),
     ]
 
-    for stdin_repr, key_repr in keys_mapping:
-        @test(f"Should capture `{stdin_repr}`")
-        def _(stdin_repr=stdin_repr, key_repr=key_repr):
-            with mock.patch(
-                "yakh._yakh.msvcrt.getwch",
-                side_effect=stdin_repr
-            ):
-                assert get_key() == key_repr
+    @pytest.mark.parametrize("stdin_repr, key_repr", keys_mapping.items())
+    def test_key_capture(stdin_repr, key_repr):
+        with mock.patch(
+            "yakh._yakh.__get_key",
+            lambda *_, **__: stdin_repr,
+        ):
+            assert get_key() == key_repr
 else:
     raise NotImplementedError(f"Platform `{platform}` is not supported")
