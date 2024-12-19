@@ -111,7 +111,7 @@ elif platform in ("win32", "cygwin"):
     def test_key_capture(stdin_repr, key_repr):
         with mock.patch(
             "yakh._yakh.msvcrt.getwch",
-            lambda *_, **__: stdin_repr,
+            side_effect=stdin_repr,
         ):
             assert get_key() == key_repr
 else:
