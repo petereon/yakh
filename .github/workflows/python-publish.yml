@@ -35,12 +35,12 @@ jobs:
         python -m pip install poetry poethepoet
         poetry install
         poetry run pip install -r requirements-dev.txt
-    - name: Test with ward
+    - name: Test with pytest
       run: |
         export PYTHONPATH=$(pwd)
         poe test
         
-    - name: Test with ward
+    - name: Test with pytest
       run: |
         poetry build
         
