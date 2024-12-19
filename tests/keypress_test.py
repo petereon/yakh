@@ -107,7 +107,7 @@ elif platform in ("win32", "cygwin"):
         (("\x00", "K"), Keys.NUMPAD_LEFT_ARROW),
     ]
 
-    @pytest.mark.parametrize("stdin_repr, key_repr", keys_mapping.items())
+    @pytest.mark.parametrize("stdin_repr, key_repr", keys_mapping)
     def test_key_capture(stdin_repr, key_repr):
         with mock.patch(
             "yakh._yakh.__get_key",
