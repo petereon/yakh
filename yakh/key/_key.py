@@ -24,8 +24,8 @@ class Key:
     def __str__(self):
         return self.key
 
-    def __repr__(self):
-        return self.__str__()
+    def __repr__(self) -> str:
+        return 'Key(key=%r, key_codes=%r, is_printable=%r)' % (self.key, self.key_codes, self.is_printable)
 
     def __eq__(self, other: Union[Tuple[int, ...], str]):
         if isinstance(other, str):
